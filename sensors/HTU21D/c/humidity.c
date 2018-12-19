@@ -12,6 +12,7 @@ int main()
 {
 	wiringPiSetup();
     int success = 0;
+	double humidity = 0;
 	int fd;
     do {
 	    fd = wiringPiI2CSetup(HTU21D_I2C_ADDR);
@@ -24,8 +25,6 @@ int main()
 	    }
 
 	    // Retrieve temperature and humidity
-	    double temperature = 0;
-	    double humidity = 0;
 	    if ( (0 > getHumidity(fd, &humidity)) || (0 > getTemperature(fd, &temperature)) )
 	    {
 		    fprintf(stderr, "ERROR: HTU21D sensor module not found\n");
@@ -35,7 +34,6 @@ int main()
 	    }
         success=1;
     } while (success != 1);
-	// Print temperature and humidity on the screen
 	printf("%5.2f%\n", humidity);
 	
 	return 0;
