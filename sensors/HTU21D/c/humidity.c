@@ -4,6 +4,7 @@
 #include <wiringPiI2C.h>
 #include <wiringPi.h>
 #include <string.h>
+#include <unistd.h>
 
 #include "HTU21D.h"
 
@@ -18,6 +19,7 @@ int main()
 	    {
 		    fprintf(stderr, "ERROR: Unable to access HTU21D sensor module: %s\n", strerror (errno));
             success = 0;
+            sleep(1);
             continue;
 	    }
 
@@ -28,6 +30,7 @@ int main()
 	    {
 		    fprintf(stderr, "ERROR: HTU21D sensor module not found\n");
             success = 0;
+            sleep(1);
             continue;
 	    }
         success=1;
