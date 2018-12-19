@@ -34,7 +34,7 @@ int main()
 	    }
         success=1;
     } while (success != 1);
-	printf("%5.2f%\n", humidity);
+	printf("%5.2f\n", humidity);
 	
 	return 0;
 }
