@@ -24,8 +24,8 @@ int main()
             continue;
 	    }
 
-	    // Retrieve temperature and humidity
-	    if ( (0 > getHumidity(fd, &humidity)) || (0 > getTemperature(fd, &temperature)) )
+	    // Retrieve temperature
+	    if (0 > getTemperature(fd, &temperature)) 
 	    {
 		    fprintf(stderr, "ERROR: HTU21D sensor module not found\n");
             success = 0;
